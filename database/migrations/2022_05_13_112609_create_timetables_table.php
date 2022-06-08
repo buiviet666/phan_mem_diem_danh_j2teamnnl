@@ -17,13 +17,13 @@ class CreateTimetablesTable extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained('courses');
             $table->foreignId('classroom_id')->constrained('classrooms');
+            $table->foreignId('room_id')->constrained('rooms');
             $table->foreignId('lecturer_id')->constrained('lecturers');
             $table->foreignId('duration_id')->constrained('durations');
-            $table->foreignId('shift_id')->constrained('shifts');
-            $table->foreignId('day_id')->constrained('days');
+            $table->integer('shift');
+            $table->integer('day');
             $table->integer('semester');
-            $table->string('year',4);
-
+            $table->string('year', 4);
         });
     }
 
