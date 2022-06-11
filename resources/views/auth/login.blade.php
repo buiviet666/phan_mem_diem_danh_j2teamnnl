@@ -32,19 +32,23 @@
                         </div>
 
                         <div class="card-body p-4">
-                            <form action="#">
+
+                            <div class="text-center w-75 m-auto">
+                                <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Sign In</h4>
+                            </div>
+                            <form method="POST" action="{{ route('process_login') }}">
+                                @csrf
                                 <div class="form-group">
                                     <label for="emailaddress">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
+                                    <input class="form-control" type="email" name="email" id="emailaddress" required=""
                                         placeholder="Enter your email">
                                 </div>
-
                                 <div class="form-group">
                                     <a href="pages-recoverpw.html" class="text-muted float-right"><small>Forgot your
                                             password?</small></a>
                                     <label for="password">Password</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" id="password" class="form-control"
+                                        <input type="password" id="password" name="password" class="form-control"
                                             placeholder="Enter your password">
                                         <div class="input-group-append" data-password="false">
                                             <div class="input-group-text">
