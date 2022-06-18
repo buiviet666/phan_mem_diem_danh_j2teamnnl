@@ -40,8 +40,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="emailaddress">Email address</label>
-                                    <input class="form-control" type="email" name="email" id="emailaddress" required=""
-                                        placeholder="Enter your email">
+                                    <input class="form-control" type="email" name="email" id="emailaddress"
+                                        required="" placeholder="Enter your email">
                                 </div>
                                 <div class="form-group">
                                     <a href="pages-recoverpw.html" class="text-muted float-right"><small>Forgot your
@@ -89,14 +89,6 @@
                     </div>
 
                     <!-- end card -->
-
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="{{ route('register') }}"
-                                    class="text-muted ml-1"><b>Sign Up</b></a></p>
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
 
                 </div> <!-- end col -->
             </div>
