@@ -23,7 +23,8 @@ Route::get('/auth/redirect/{provider}', function ($provider) {
 })->name('auth.redirect');
 
 Route::get('/auth/callback/{provider}', [AuthController::class, 'callback'])->name('auth.callback');
-
-
+ 
+Route::resource('admins', AdminController::class)->except(['show', 'destroy']);
 Route::resource('lecturers', LecturerController::class)->except(['show', 'destroy']);
 Route::resource('students', StudentController::class)->except(['show', 'destroy']);
+
