@@ -17,12 +17,12 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('avatar')->nullable();
-            $table->foreignId('classroom_id')->constrained('classrooms');
             $table->string('email')->unique();
             $table->string('phone', 15)->unique();
             $table->boolean('gender')->default(0);
             $table->string('address', 200);
             $table->string('password', 200);
+            $table->foreignId('classroom_id')->constrained('classrooms');
         });
     }
 
