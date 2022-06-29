@@ -22,8 +22,14 @@ class AuthController extends Controller
                 ->where('email', $request->get('email'))
                 ->where('password', $request->get('password'))
                 ->first();
+<<<<<<< Updated upstream
             $level = $user->level;
             if ($level !== 0 && $level !== 1 && $level != 2) {
+=======
+                $level = $user->level;
+             
+            if ($level !== 0 && $level !== 1 && $level !==2) {
+>>>>>>> Stashed changes
                 return redirect()->route('login');
             }
             session()->put('id', $user->id);
@@ -31,10 +37,17 @@ class AuthController extends Controller
             session()->put('avatar', $user->avatar);
             session()->put('level', $user->level);
 
+
             if ($level == 1) {
                 return redirect()->route('lecturers.index');
+<<<<<<< Updated upstream
             } else  if ($level == 0) {
+=======
+            } else if($level == 0) {
+>>>>>>> Stashed changes
                 return redirect()->route('students.index');
+            }else if ($level == 2){
+                return redirect()->route('admins.index');
             }
             if ($level == 2) {
                 return redirect()->route('admins.index');
