@@ -32,6 +32,15 @@ class Kernel extends HttpKernel
         'login' => [
             \App\Http\Middleware\CheckLoginMiddleware::class,
         ],
+        'student' => [
+            \App\Http\Middleware\CheckStudentMiddleware::class,
+        ],
+        'lecturer' => [
+            \App\Http\Middleware\CheckLecturerMiddleware::class,
+        ],
+        'admin' => [
+            \App\Http\Middleware\CheckAdminMiddleware::class,
+        ],
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -56,8 +65,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'login'=>\App\Http\Middleware\CheckLoginMiddleware::class,
-        'logout'=>\App\Http\Middleware\CheckLogoutMiddleware::class,
+        'lecturer' =>  \App\Http\Middleware\CheckLecturerMiddleware::class,
+        'admin' =>  \App\Http\Middleware\CheckAdminMiddleware::class,
+        'student' => \App\Http\Middleware\CheckStudentMiddleware::class,
+        'login' => \App\Http\Middleware\CheckLoginMiddleware::class,
+        'logout' => \App\Http\Middleware\CheckLogoutMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

@@ -18,10 +18,9 @@ Route::middleware(['logout'])->group(function () {
 
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registering'])->name('registering');
-
 });
 
-Route::get('logout',[AuthController::class,'logout'])->name('logout');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/auth/redirect/{provider}', function ($provider) {
     return Socialite::driver($provider)->redirect();
@@ -30,8 +29,11 @@ Route::get('/auth/redirect/{provider}', function ($provider) {
 Route::get('/auth/callback/{provider}', [AuthController::class, 'callback'])->name('auth.callback');
 
 Route::middleware(['login'])->group(function () {
-    Route::resource('admins', AdminController::class)->except(['show', 'destroy']);
-    Route::resource('lecturers', LecturerController::class)->except(['show', 'destroy']);
-    Route::resource('students', StudentController::class)->except(['show', 'destroy']);
-});
+    Route::resource('admin', AdminController::class)->except(['show', 'destroy'])->middleware('admin');
+    Route::get('admin/students',[AdminController::class, 'students'])->name('admin_students');
 
+    Route::resource('lecturer', LecturerController::class)->except(['show', 'destroy'])->middleware('lecturer');
+
+
+    Route::resource('student', StudentController::class)->except(['show', 'destroy'])->middleware('student');
+});

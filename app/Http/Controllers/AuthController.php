@@ -32,11 +32,11 @@ class AuthController extends Controller
             session()->put('level', $user->level);
 
             if ($level == 1) {
-                return redirect()->route('lecturers.index');
+                return redirect()->route('lecturer.index');
             } else if ($level == 0) {
-                return redirect()->route('students.index');
+                return redirect()->route('student.index');
             } else if ($level == 2) {
-                return redirect()->route('admins.index');
+                return redirect()->route('admin.index');
             }
         } catch (\Throwable $th) {
             return redirect()->route('login');

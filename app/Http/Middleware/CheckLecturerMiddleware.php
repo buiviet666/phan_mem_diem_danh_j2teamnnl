@@ -5,12 +5,12 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckLoginMiddleware
+class CheckLecturerMiddleware
 { 
     public function handle(Request $request, Closure $next)
-    {
-        if(!session()->has('level')){
-            return redirect()->route('login');
+        {
+        if (session()->get('level') !== 1) {
+            abort(404);
         }
         return $next($request);
     }
