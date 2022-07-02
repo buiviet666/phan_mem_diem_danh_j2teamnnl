@@ -23,7 +23,7 @@ class AuthController extends Controller
                 ->where('password', $request->get('password'))
                 ->first();
             $level = $user->level;
-            if ($level !== 0 && $level !== 1) {
+            if ($level !== 0 && $level !== 1 && $level !== 2) {
                 return redirect()->route('login');
             }
             session()->put('id', $user->id);
@@ -32,13 +32,14 @@ class AuthController extends Controller
             session()->put('level', $user->level);
 
             if ($level == 1) {
-                return redirect()->route('lecturers.index');
-            } else {
-                return redirect()->route('students.index');
+                return redirect()->route('lecturer.index');
+            } else if ($level == 0) {
+                return redirect()->route('student.index');
+            } else if ($level == 2) {
+                return redirect()->route('admin.index');
             }
         } catch (\Throwable $th) {
             return redirect()->route('login');
-            
         }
     }
     public function logout()

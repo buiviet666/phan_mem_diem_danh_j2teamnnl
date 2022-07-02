@@ -11,27 +11,49 @@
     <!--- Sidemenu -->
     <ul class="metismenu side-nav">
 
+        @if (checkAdmin())
+            <li class="side-nav-item">
+                <a href="javascript: void(0);" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span>Trang chủ</span>
+                </a>
+            </li>
 
-        <li class="side-nav-item">
-            <a href="javascript: void(0);" class="side-nav-link">
-                <i class="uil-home-alt"></i>
-                <span>Trang chủ</span>
-            </a>
-        </li>
+            <li class="side-nav-item">
+                <a href="{{ route('admin_students') }}" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span>Quản lí sinh viên</span>
+                </a>
+            </li>
 
-        <li class="side-nav-item">
-            <a href="javascript: void(0);" class="side-nav-link">
-                <i class="uil-home-alt"></i>
-                <span>Thời khóa biểu</span>
-            </a>
-        </li>
+            <li class="side-nav-item">
+                <a href="javascript: void(0);" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span>Quản lí giảng viên</span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="javascript: void(0);" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span>Quản lí lớp học</span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="javascript: void(0);" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span>Quản lí môn học</span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="javascript: void(0);" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span>Phân công thời khóa biểu </span>
+                </a>
+            </li>
+        @endif
 
-        <li class="side-nav-item">
-            <a href="javascript: void(0);" class="side-nav-link">
-                <i class="uil-home-alt"></i>
-                <span>Thông báo</span>
-            </a>
-        </li>
+
+
 
 
     </ul>
