@@ -17,7 +17,6 @@ class CreateClassroomsTable extends Migration
             $table->id();
             $table->string('name',50);
             $table->foreignId('lecturer_id')->constrained('lecturers');
-            $table->foreignId('department_id')->constrained('departments');
         });
     }
 

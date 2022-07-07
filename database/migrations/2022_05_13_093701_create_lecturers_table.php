@@ -21,7 +21,6 @@ class CreateLecturersTable extends Migration
             $table->string('phone', 15)->unique();
             $table->boolean('gender')->default(0);
             $table->string('address', 200);
-            $table->string('password', 200);
             $table->foreignId('department_id')->constrained('departments');
         });
     }
