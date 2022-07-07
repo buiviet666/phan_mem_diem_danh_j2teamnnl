@@ -87,4 +87,9 @@ class AdminController extends Controller
     {
         return view('admin/students.index');
     }
+    
+    public function departments()
+    {
+        return view('admin/departments.index');
+    }
 }

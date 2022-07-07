@@ -32,6 +32,9 @@ Route::middleware(['login'])->group(function () {
     Route::resource('admin', AdminController::class)->except(['show', 'destroy'])->middleware('admin');
     Route::get('admin/students',[AdminController::class, 'students'])->name('admin_students');
 
+    Route::get('admin/departments',[AdminController::class, 'departments'])->name('admin_departments');
+
+
     Route::resource('lecturer', LecturerController::class)->except(['show', 'destroy'])->middleware('lecturer');
 
 

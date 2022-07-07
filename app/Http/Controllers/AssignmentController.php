@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\shift;
-use App\Http\Requests\StoreshiftRequest;
-use App\Http\Requests\UpdateshiftRequest;
+use App\Models\assignment;
+use App\Http\Requests\StoreassignmentRequest;
+use App\Http\Requests\UpdateassignmentRequest;
 
-class ShiftController extends Controller
+class AssignmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class ShiftController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreshiftRequest  $request
+     * @param  \App\Http\Requests\StoreassignmentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreshiftRequest $request)
+    public function store(StoreassignmentRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ShiftController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\shift  $shift
+     * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function show(shift $shift)
+    public function show(assignment $assignment)
     {
         //
     }
@@ -53,10 +53,10 @@ class ShiftController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\shift  $shift
+     * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function edit(shift $shift)
+    public function edit(assignment $assignment)
     {
         //
     }
@@ -64,11 +64,11 @@ class ShiftController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateshiftRequest  $request
-     * @param  \App\Models\shift  $shift
+     * @param  \App\Http\Requests\UpdateassignmentRequest  $request
+     * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateshiftRequest $request, shift $shift)
+    public function update(UpdateassignmentRequest $request, assignment $assignment)
     {
         //
     }
@@ -76,10 +76,10 @@ class ShiftController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\shift  $shift
+     * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(shift $shift)
+    public function destroy(assignment $assignment)
     {
         //
     }

@@ -21,7 +21,6 @@ class CreateStudentsTable extends Migration
             $table->string('phone', 15)->unique();
             $table->boolean('gender')->default(0);
             $table->string('address', 200);
-            $table->string('password', 200);
             $table->foreignId('classroom_id')->constrained('classrooms');
         });
     }

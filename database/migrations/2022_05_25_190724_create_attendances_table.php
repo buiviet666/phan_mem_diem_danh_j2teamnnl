@@ -15,9 +15,10 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('timetable_id')->constrained('timetables');
+            $table->foreignId('assignment_id')->constrained('assignments');
             $table->foreignId('lecturer_id')->constrained('lecturers');
-            $table->integer('day');
+            $table->date('date');
+            $table->integer('shift');
         });
     }
 
