@@ -17,8 +17,8 @@ class CheckLogoutMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session()->has('level')){
-            abort(404);
+        if (session()->has('level')) {
+            return redirect()->route('welcome');
         }
         return $next($request);
     }
