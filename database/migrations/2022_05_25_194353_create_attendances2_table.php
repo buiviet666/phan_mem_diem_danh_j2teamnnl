@@ -14,10 +14,10 @@ class CreateAttendances2Table extends Migration
     public function up()
     {
         Schema::create('attendances2', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('attendance_id')->constrained('attendances');
             $table->foreignId('student_id')->constrained('students');
             $table->integer('status');
+            $table->primary(['attendance_id', 'student_id']);
         });
     }
 

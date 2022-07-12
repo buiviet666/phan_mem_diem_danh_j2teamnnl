@@ -14,33 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
-        // DB::table('users')->insert([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => '123',
-        //     'level' => '2',
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'Trần Hoàng Vân',
-        //     'email' => 'lecturer@gmail.com',
-        //     'password' => '123',
-        //     'level' => '1',
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'Nguyễn Nam An',
-        //     'email' => 'student@gmail.com',
-        //     'password' => '123',
-        //     'level' => '0',
-        // ]);
-        DB::table('departments')->insert([
-            'name' => 'Công nghệ thông tin',
-        ]);
-        DB::table('departments')->insert([
-            'name' => 'Chính trị',
-        ]);
-        DB::table('departments')->insert([
-            'name' => 'Kinh tế',
-        ]);
+        $this->call(AssignmentSeeder::class);
+        $this->call(attendanceSeeder::class);
+        $this->call(ClassroomSeeder::class);
+        $this->call(CourseSeeder::class);
+        $this->call(DepartmentSeeder::class);
+        $this->call(LecturerSeeder::class);
+        $this->call(RoomSeeder::class);
+        $this->call(StudentSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }
