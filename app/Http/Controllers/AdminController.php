@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        View::share('title', 'Giáo vụ');
+    }
     public function index()
     {
+
         return view('admin.index');
     }
 
@@ -87,7 +88,7 @@ class AdminController extends Controller
     {
         return view('admin/students.index');
     }
-    
+
     public function departments()
     {
         return view('admin/departments.index');

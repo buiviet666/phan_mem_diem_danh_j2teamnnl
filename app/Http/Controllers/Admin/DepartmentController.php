@@ -1,21 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\department;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+
 use App\Http\Requests\StoredepartmentRequest;
 use App\Http\Requests\UpdatedepartmentRequest;
 
 class DepartmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private object $model;
+    private string $table;
+    public function __construct()
+    {
+        $this->model = department::query();
+        $this->table = (new department())->getTable();
+
+        View::share('title', 'Ngành');
+    }
+
     public function index()
     {
-        //
+        $data = $this->model->paginate(3);
+
+        return view("admin.$this->table.index", [
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -83,4 +96,7 @@ class DepartmentController extends Controller
     {
         //
     }
+    /**
+     * @return object
+     */
 }

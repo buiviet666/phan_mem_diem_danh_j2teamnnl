@@ -1,12 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\LecturerController;
-use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
-
 
 Route::get('/', function () {
     return view('layout/master');
@@ -27,16 +23,3 @@ Route::get('/auth/redirect/{provider}', function ($provider) {
 })->name('auth.redirect');
 
 Route::get('/auth/callback/{provider}', [AuthController::class, 'callback'])->name('auth.callback');
-
-Route::middleware(['login'])->group(function () {
-    Route::resource('admin', AdminController::class)->except(['show', 'destroy'])->middleware('admin');
-    Route::get('admin/students',[AdminController::class, 'students'])->name('admin_students');
-
-    Route::get('admin/departments',[AdminController::class, 'departments'])->name('admin_departments');
-
-
-    Route::resource('lecturer', LecturerController::class)->except(['show', 'destroy'])->middleware('lecturer');
-
-
-    Route::resource('student', StudentController::class)->except(['show', 'destroy'])->middleware('student');
-});
