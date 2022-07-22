@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>điểm danh</title>
+    <title>{{ $title ?? '' }} - {{ config('app.name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -43,31 +43,31 @@
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item active">Dashboard</li>
+                                        <li class="breadcrumb-item active">{{ $title ?? '' }}</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Dashboard</h4>
+                                <h4 class="page-title">{{ $title ?? '' }}</h4>  
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
+                    @yield('content')
 
 
 
+                </div>
+                <!-- end row-->
 
-                    </div>
-                    <!-- end row-->
+            </div> <!-- End Content -->
 
-                </div> <!-- End Content -->
+            <!-- Footer Start -->
+            @include('layout/footer')
+            <!-- end Footer -->
 
-                <!-- Footer Start -->
-                @include('layout/footer')
-                <!-- end Footer -->
+        </div>
+        <!-- content-page -->
 
-            </div> 
-            <!-- content-page -->
-
-        </div> <!-- end wrapper-->
+    </div> <!-- end wrapper-->
     </div>
     <!-- END Container -->
 

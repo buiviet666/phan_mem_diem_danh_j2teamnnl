@@ -36,7 +36,7 @@ class AuthController extends Controller
             } else if ($level == 0) {
                 return redirect()->route('student.index');
             } else if ($level == 2) {
-                return redirect()->route('admin.index');
+                return redirect()->route("admin.welcome");
             }
         } catch (\Throwable $th) {
             return redirect()->route('login');
